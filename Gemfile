@@ -34,6 +34,16 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+end
+
+gem 'therubyracer', platforms: :ruby
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

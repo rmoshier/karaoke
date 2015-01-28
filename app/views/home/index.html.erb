@@ -1,0 +1,7 @@
+<%= link_to "Login with Rdio", "/auth/rdio" %>
+
+<% if session[:user_id] %>
+  <%= "Session: " %>
+  <%=  session[:user_id] %>
+  <%= link_to "Logout", destroy_session_path %>
+<% end %>

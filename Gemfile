@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
@@ -45,6 +46,12 @@ end
 gem 'therubyracer', platforms: :ruby
 
 gem 'httparty'
+
+gem "omniauth"
+
+gem 'rdio_api', '~> 0.1.1'
+
+gem 'omniauth-rdio', '~> 0.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

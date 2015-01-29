@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
     User.create(
       uid:        auth_hash["uid"].to_s,
       image:  auth_hash["info"]["image"],
-      # name: auth_hash["info"]["name"],
       first_name:   auth_hash["info"]["first_name"],
       last_name: auth_hash["info"]["last_name"]
     )

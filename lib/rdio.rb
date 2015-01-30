@@ -18,6 +18,7 @@ class RdioSetter
   def heavy_rotation
     # Get songs in heavy rotation
     @client.getHeavyRotation(:type => "albums")
+    #
   end
 
 end

@@ -2,12 +2,12 @@ class User < ActiveRecord::Base
 
   def self.create_from_omniauth(auth_hash)
     User.create(
-      uid:          auth_hash["uid"].to_s,
-      image:        auth_hash["info"]["image"],
-      first_name:   auth_hash["info"]["first_name"],
-      last_name:    auth_hash["info"]["last_name"]
-      # rdio_access_token
-      # rdio_access_secret 
+      uid:                  auth_hash["uid"].to_s,
+      image:                auth_hash["info"]["image"],
+      first_name:           auth_hash["info"]["first_name"],
+      last_name:            auth_hash["info"]["last_name"],
+      rdio_access_token:    auth_hash["credentials"]["token"],
+      rdio_access_secret:   auth_hash["credentials"]["secret"]
     )
   end
 

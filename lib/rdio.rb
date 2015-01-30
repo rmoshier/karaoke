@@ -2,14 +2,17 @@ require 'httparty'
 
 class RdioSetter
 
-  def initialize(user_id)
-    create_rdio_client
+  def initialize(user)
+    create_rdio_client(user)
     heavy_rotation
   end
 
-  def create_rdio_client
+  def create_rdio_client(user)
     # Initialize a new Rdio client
-    @client = RdioApi.new(:consumer_key => RDIO_API_KEY, :consumer_secret => RDIO_API_SECRET)
+    @client = RdioApi.new(:consumer_key => ENV["RDIO_API_KEY"],
+                          :consumer_secret => ENV["RDIO_API_SECRET"],
+                          :access_token => user.rdio_access_token,
+                          :access_secret => user.rdio_access_secret)
   end
 
   def heavy_rotation
@@ -19,10 +22,5 @@ class RdioSetter
 
 end
 
-# Methods that act on behalf of a user require an access token, OmniAuth is best for this
-
-Access token can be set at initialization
-client = RdioApi.new(:consumer_key => CONSUMER_KEY,
-                     :consumer_secret => CONSUMER_SECRET,
-                     :access_token => ACCESS_TOKEN,
-                     :access_secret => ACCESS_SECRET)
+# client = RdioApi.new(:consumer_key => CONSUMER_KEY,
+#                      :consumer_secret => CONSUMER_SECRET,

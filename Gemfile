@@ -49,7 +49,7 @@ gem 'httparty'
 
 gem "omniauth"
 
-gem 'rdio_api', '~> 0.1.1'
+gem 'rdio_api', :github => 'anilv/rdio_api'
 
 gem 'omniauth-rdio', '~> 0.1.0'
 

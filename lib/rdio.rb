@@ -4,7 +4,7 @@ class RdioSetter
 
   def initialize(user)
     create_rdio_client(user)
-    heavy_rotation
+    # heavy_rotation
   end
 
   def create_rdio_client(user)
@@ -18,10 +18,14 @@ class RdioSetter
   def heavy_rotation
     # Get songs in heavy rotation
     @client.getHeavyRotation(:type => "albums")
-    #
   end
 
-end
+  # def rdio_user
+  #   @client.currentUser
+  # end
 
-# client = RdioApi.new(:consumer_key => CONSUMER_KEY,
-#                      :consumer_secret => CONSUMER_SECRET,
+  # def get_playlists
+  #   @client.getPlaylists
+  # end
+
+end

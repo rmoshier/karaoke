@@ -53,6 +53,8 @@ gem 'rdio_api', :github => 'anilv/rdio_api'
 
 gem 'omniauth-rdio', '~> 0.1.0'
 
+gem 'simplecov', :require => false, :group => :test
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

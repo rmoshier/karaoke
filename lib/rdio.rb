@@ -5,6 +5,7 @@ class RdioSetter
   def initialize(user)
     create_rdio_client(user)
     # heavy_rotation
+    get_playlists
   end
 
   def create_rdio_client(user)
@@ -20,12 +21,8 @@ class RdioSetter
     @client.getHeavyRotation(:type => "albums")
   end
 
-  # def rdio_user
-  #   @client.currentUser
-  # end
-
-  # def get_playlists
-  #   @client.getPlaylists
-  # end
+  def get_playlists
+    @client.getPlaylists
+  end
 
 end

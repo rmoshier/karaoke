@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     if current_user
       @albums = RdioSetter.new(current_user).heavy_rotation
       @playlists = RdioSetter.new(current_user).get_playlists
+      @key = @playlists["owned"][0]["key"]
     end
   end
 end

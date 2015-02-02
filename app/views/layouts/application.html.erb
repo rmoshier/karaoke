@@ -29,10 +29,11 @@
       <div id="apiswf"></div>
         <div class="well" style="overflow: hidden;">
           <div class="row" style="margin-bottom: 10px;">
-            <div class="col-md-2">Enter Album Key</div>
-            <div class="col-md-10">
               <% if current_user %>
-                <input id="play_key" class="form-control" value=<%=@playlists["owned"][0]["key"] %>>
+                <!-- <div class="col-md-2">Enter Album Key</div> -->
+                <div class="col-md-10">
+                  <input id="play_key" class="form-control" value="<%=@key %>" type="hidden">
+                  <!-- or we could do something called data attribute here -->
               <% end %>
               <!-- <input id="play_key" class="form-control" value="p12674528"> -->
               <!-- <input id="play_key" class="form-control" value="a239851"> -->

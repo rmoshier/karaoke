@@ -4,7 +4,6 @@ class RdioSetter
 
   def initialize(user)
     create_rdio_client(user)
-    # heavy_rotation
     get_playlists
   end
 
@@ -16,12 +15,8 @@ class RdioSetter
                           :access_secret => user.rdio_access_secret)
   end
 
-  def heavy_rotation
-    # Get songs in heavy rotation
-    @client.getHeavyRotation(:type => "albums")
-  end
-
   def get_playlists
+    # Get an authenticated user's playlists
     @client.getPlaylists
   end
 

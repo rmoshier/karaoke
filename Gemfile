@@ -55,6 +55,8 @@ gem 'omniauth-rdio', '~> 0.1.0'
 
 gem 'simplecov', :require => false, :group => :test
 
+gem 'musix_match', '~> 0.2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

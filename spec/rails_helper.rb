@@ -47,16 +47,37 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.before(:suite) do
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:rdio] = OmniAuth::AuthHash.new({
+
+  # OmniAuth.config.add_mock(:rdio, {
+
+    :uid                  => '12345',
+
+    :image                => 'image',
+
+    :first_name           => 'Rachel',
+
+    :last_name            => 'Adler',
+
+    :rdio_access_token    => 'token',
+
+    :rdio_access_secret   => 'secret'
+
+  })
+  end
 end
+# 
+# OmniAuth.config.mock_auth[:rdio] = OmniAuth::AuthHash.new({
+# # OmniAuth.config.add_mock(:rdio, {
+#   :uid                  => '12345',
+#   :image                => 'image',
+#   :first_name           => 'Rachel',
+#   :last_name            => 'Adler',
+#   :rdio_access_token    => 'token',
+#   :rdio_access_secret   => 'secret'
+# })
 
-OmniAuth.config.mock_auth[:rdio] = OmniAuth::AuthHash.new({
-# OmniAuth.config.add_mock(:rdio, {
-  :uid                  => '12345',
-  :image                => 'image',
-  :first_name           => 'Rachel',
-  :last_name            => 'Adler',
-  :rdio_access_token    => 'token',
-  :rdio_access_secret   => 'secret'
-})
-
-OmniAuth.config.mock_auth[:rdio] = nil
+# OmniAuth.config.mock_auth[:rdio] = nil

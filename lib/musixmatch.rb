@@ -19,6 +19,11 @@ class MusixmatchSetter
     JSON.parse(HTTParty.get(url))
   end
 
+  def lyrics
+    url = "http://api.musixmatch.com/ws/1.1/track.subtitles.get?apikey=1ded3ade3e63977aef9212b43320afb1&track_id=9123822"
+    JSON.parse(HTTParty.get(url))
+  end
+
   # when they press play load in artist and albumn name as variables into fat url
   # take it in and run a method were for every space we throw in a '%'
   # uri encoding = % in place of spaces

@@ -9,9 +9,7 @@ class HomeController < ApplicationController
       @json = MusixmatchSetter.new.response
       @track_id = @json["message"]["body"]["track_list"][0]["track"]["track_id"]
       @lyrics = MusixmatchSetter.new.lyrics
-      @subtitles = @lyrics["message"]["body"]["subtitle_list"][0]["subtitle"]["subtitle_body"] 
+      @subtitles = @lyrics["message"]["body"]["subtitle_list"][0]["subtitle"]["subtitle_body"]
     end
-    # raise
-    # @lyrics = MusixmatchSetter.new.lyrics_search
   end
 end

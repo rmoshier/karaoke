@@ -7,6 +7,7 @@ class HomeController < ApplicationController
       @playlists = RdioSetter.new(current_user).get_playlists
       @key = @playlists["owned"][0]["key"]
       @json = MusixmatchSetter.new.response
+      @track_id = @json["message"]["body"]["track_list"][0]["track"]["track_id"]
     end
     # raise
     # @lyrics = MusixmatchSetter.new.lyrics_search

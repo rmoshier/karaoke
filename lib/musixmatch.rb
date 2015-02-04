@@ -21,7 +21,7 @@ class MusixmatchSetter
 
   # when they press play load in artist and albumn name as variables into fat url
   # take it in and run a method were for every space we throw in a '%'
-
+  # uri encoding = % in place of spaces
 
 
 

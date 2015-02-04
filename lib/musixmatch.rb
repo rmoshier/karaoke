@@ -22,6 +22,8 @@ class MusixmatchSetter
   def lyrics
     url = "http://api.musixmatch.com/ws/1.1/track.subtitles.get?apikey=1ded3ade3e63977aef9212b43320afb1&track_id=9123822"
     JSON.parse(HTTParty.get(url))
+    # next work on ajax call updated the above link with the appropriate information
+    # also need to update method names so they correspond with the musixmatch method names for clarity
   end
 
   # when they press play load in artist and albumn name as variables into fat url

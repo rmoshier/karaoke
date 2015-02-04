@@ -44,6 +44,36 @@ $(document).ready(function() {
   $('#pause').click(function() { apiswf.rdio_pause(); });
   $('#previous').click(function() { apiswf.rdio_previous(); });
   $('#next').click(function() { apiswf.rdio_next(); });
+
+  // ajax request to change musixmatch API url with arist and track when play is clicked
+
+  $("#play").click(function() {
+    var trackArtist = $('#artist').html();
+    var trackName = $('#track').html();
+    var method = "track.search";
+    console.log(trackArtist);
+    $.ajax({
+      // type: "POST",
+      url: ("http://api.musixmatch.com/ws/1.1/"
+        + method
+        + "?apikey="
+        + "1ded3ade3e63977aef9212b43320afb1"
+        //  + ENV['MUSIXMATCH_API_KEY']
+        + "&q_track="
+        + trackName
+        + "&q_artist="
+        + trackArtist
+        + "&f_has_lyrics=1"),
+      // data: data,
+      success: function() {
+        console.log("does this work?");
+      }
+    });
+  });
+
+  // how do i see data from url and how do i parse it?
+  // should see data hash in my server, says crystal
+
 });
 
 
@@ -92,7 +122,8 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
   // Track metadata is provided as playingTrack and the position within the playing source as sourcePosition.
   if (playingTrack != null) {
     $('#track').text(playingTrack['name']);
-    console.log(playingTrack, sourcePosition);
+    // console.log(playingTrack, sourcePosition);
+    // console.log(trackName);
     $('#album').text(playingTrack['album']);
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);

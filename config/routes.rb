@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get "/auth/rdio/callback",  to: "sessions#create",        as: :connect
 
+  # post ""
+
   get "/logout",              to: "sessions#destroy",        as: :destroy_session
 
   # The priority is based upon order of creation: first created -> highest priority.

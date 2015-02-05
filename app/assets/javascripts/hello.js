@@ -35,7 +35,6 @@ $(document).ready(function() {
       'apiswf', // the ID of the element that will be replaced with the SWF
       1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
 
-
   // set up the controls
   $('#play').click(function() {
     apiswf.rdio_play($('#play_key').val());
@@ -44,35 +43,6 @@ $(document).ready(function() {
   $('#pause').click(function() { apiswf.rdio_pause(); });
   $('#previous').click(function() { apiswf.rdio_previous(); });
   $('#next').click(function() { apiswf.rdio_next(); });
-
-  // ajax request to change musixmatch API url with arist and track when play is clicked
-
-  $("#play").click(function() {
-    var trackArtist = $('#artist').html();
-    var trackName = $('#track').html();
-    var method = "track.search";
-    console.log(trackArtist);
-    $.ajax({
-      // type: "POST",
-      url: ("http://api.musixmatch.com/ws/1.1/"
-        + method
-        + "?apikey="
-        + "1ded3ade3e63977aef9212b43320afb1"
-        //  + ENV['MUSIXMATCH_API_KEY']
-        + "&q_track="
-        + trackName
-        + "&q_artist="
-        + trackArtist
-        + "&f_has_lyrics=1"),
-      // data: data,
-      success: function() {
-        console.log("does this work?");
-      }
-    });
-  });
-
-  // how do i see data from url and how do i parse it?
-  // should see data hash in my server, says crystal
 
 });
 
@@ -114,8 +84,50 @@ callback_object.freeRemainingChanged = function freeRemainingChanged(remaining) 
 callback_object.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
-  $('#playState').text(playState);
-}
+  $('#playState').text(playState)
+
+  updateUrl = function() {
+      var trackArtist = $('#artist').html();
+      var trackName = $('#track').html();
+      var method = "track.search";
+      console.log("working?");
+      console.log(trackArtist);
+      $.ajax({
+        // type: "POST",
+        url: ("http://api.musixmatch.com/ws/1.1/"
+          + method
+          + "?apikey="
+          + "1ded3ade3e63977aef9212b43320afb1"
+          //  + ENV['MUSIXMATCH_API_KEY']
+          + "&q_track="
+          + trackName
+          + "&q_artist="
+          + trackArtist
+          + "&f_has_lyrics=1"),
+        // data: data,
+        success: function() {
+          console.log("working!");
+        }
+      });
+    };
+    updateUrl();
+    // function submitPhotoOnSuccess (button) {
+    //   $.ajax("/submit-photo", {
+    //     type: "POST",
+    //     data: {hash: photo_data},
+    //     success: function (data) {
+    //       console.log(button);
+    //       button.removeClass("submit-photo");
+    //       button.addClass("submitted");
+    //       button.val("Submitted");
+    //       console.log(button);
+    //     }
+    //   });
+    // }
+  };
+  // move this down to line `132` ish inside of the playstatechange function. no play.click
+
+
 
 callback_object.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
   // The currently playing track has changed.

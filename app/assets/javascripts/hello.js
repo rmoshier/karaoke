@@ -86,37 +86,7 @@ callback_object.playStateChanged = function playStateChanged(playState) {
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
   $('#playState').text(playState);
 
-  updateUrl = function() {
-      var trackArtist = $('#artist').html();
-      var trackName = $('#track').html();
-      var method = "track.search";
-      console.log("working?");
-      console.log(trackArtist);
-      // this ajax call needs to go to my own app
-      // in my app i'll be using httparty
-      $.ajax("/lyrics", {
-        type: "POST",
-        // data: data,
-        success: function() {
-          console.log("working!");
-        }
-      });
-    };
-    updateUrl();
-    // function submitPhotoOnSuccess (button) {
-    //   $.ajax("/submit-photo", {
-    //     type: "POST",
-    //     data: {hash: photo_data},
-    //     success: function (data) {
-    //       console.log(button);
-    //       button.removeClass("submit-photo");
-    //       button.addClass("submitted");
-    //       button.val("Submitted");
-    //       console.log(button);
-    //     }
-    //   });
-    // }
-  };
+};
 
 callback_object.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
   // The currently playing track has changed.
@@ -128,6 +98,33 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     $('#album').text(playingTrack['album']);
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);
+
+    updateUrl = function() {
+      var trackArtist = $('#artist').html();
+      var trackName = $('#track').html();
+      var method = "track.search";
+      console.log("working?");
+      console.log(trackArtist);
+      // this ajax call needs to go to my own app
+      // in my app i'll be using httparty
+      $.ajax("/lyrics", {
+        type: "POST",
+        data: {
+          'artist': trackArtist,
+          'track': trackName,
+          'method': method,
+        },
+        dataType: "text",
+        success: function(data) {
+          console.log(data);
+          console.log("working!");
+        },
+        error: function() {
+          console.log("ERROR");
+        }
+      });
+    };
+    updateUrl();
   }
 };
 

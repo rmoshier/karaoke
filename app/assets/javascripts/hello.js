@@ -75,16 +75,16 @@ callback_object.ready = function ready(user) {
   }
 
   console.log(user);
-}
+};
 
 callback_object.freeRemainingChanged = function freeRemainingChanged(remaining) {
   $('#remaining').text(remaining);
-}
+};
 
 callback_object.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
-  $('#playState').text(playState)
+  $('#playState').text(playState);
 
   updateUrl = function() {
       var trackArtist = $('#artist').html();
@@ -94,18 +94,8 @@ callback_object.playStateChanged = function playStateChanged(playState) {
       console.log(trackArtist);
       // this ajax call needs to go to my own app
       // in my app i'll be using httparty
-      $.ajax({
-        // type: "POST",
-        url: ("http://api.musixmatch.com/ws/1.1/"
-          + method
-          + "?apikey="
-          + "1ded3ade3e63977aef9212b43320afb1"
-          //  + ENV['MUSIXMATCH_API_KEY']
-          + "&q_track="
-          + trackName
-          + "&q_artist="
-          + trackArtist
-          + "&f_has_lyrics=1"),
+      $.ajax("/lyrics", {
+        type: "POST",
         // data: data,
         success: function() {
           console.log("working!");
@@ -127,9 +117,6 @@ callback_object.playStateChanged = function playStateChanged(playState) {
     //   });
     // }
   };
-  // move this down to line `132` ish inside of the playstatechange function. no play.click
-
-
 
 callback_object.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
   // The currently playing track has changed.
@@ -142,45 +129,45 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);
   }
-}
+};
 
 callback_object.playingSourceChanged = function playingSourceChanged(playingSource) {
   // The currently playing source changed.
   // The source metadata, including a track listing is inside playingSource.
-}
+};
 
 callback_object.volumeChanged = function volumeChanged(volume) {
   // The volume changed to volume, a number between 0 and 1.
-}
+};
 
 callback_object.muteChanged = function muteChanged(mute) {
   // Mute was changed. mute will either be true (for muting enabled) or false (for muting disabled).
-}
+};
 
 callback_object.positionChanged = function positionChanged(position) {
   //The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
   $('#position').text(position);
-}
+};
 
 callback_object.queueChanged = function queueChanged(newQueue) {
   // The queue has changed to newQueue.
-}
+};
 
 callback_object.shuffleChanged = function shuffleChanged(shuffle) {
   // The shuffle mode has changed.
   // shuffle is a boolean, true for shuffle, false for normal playback order.
-}
+};
 
 callback_object.repeatChanged = function repeatChanged(repeatMode) {
   // The repeat mode change.
   // repeatMode will be one of: 0: no-repeat, 1: track-repeat or 2: whole-source-repeat.
-}
+};
 
 callback_object.playingSomewhereElse = function playingSomewhereElse() {
   // An Rdio user can only play from one location at a time.
   // If playback begins somewhere else then playback will stop and this callback will be called.
-}
+};
 
 callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString) {
   // Called with frequency information after apiswf.rdio_startFrequencyAnalyzer(options) is called.
@@ -190,5 +177,5 @@ callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString
 
   $('#freq div').each(function(i) {
     $(this).width(parseInt(parseFloat(arr[i])*500));
-  })
-}
+  });
+};

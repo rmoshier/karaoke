@@ -92,6 +92,8 @@ callback_object.playStateChanged = function playStateChanged(playState) {
       var method = "track.search";
       console.log("working?");
       console.log(trackArtist);
+      // this ajax call needs to go to my own app
+      // in my app i'll be using httparty
       $.ajax({
         // type: "POST",
         url: ("http://api.musixmatch.com/ws/1.1/"

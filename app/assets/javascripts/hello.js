@@ -145,7 +145,10 @@ callback_object.muteChanged = function muteChanged(mute) {
 callback_object.positionChanged = function positionChanged(position) {
   //The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
+  console.log(position);
   $('#position').text(position);
+  // this is where i need to put the code for comparing seconds in json object and song position
+  // first convert the json timestamp into seconds that we can use
 };
 
 callback_object.queueChanged = function queueChanged(newQueue) {

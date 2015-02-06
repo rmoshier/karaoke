@@ -114,7 +114,8 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           'track': trackName,
           'method': method,
         },
-        dataType: "text",
+        // dataType: "text",
+        dataType: "json",
         success: function(data) {
           console.log(data);
           console.log("working!");

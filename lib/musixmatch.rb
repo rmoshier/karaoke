@@ -25,15 +25,19 @@ class MusixmatchSetter
     return @subtitles
   end
 
-  def to_hash(subtitles)
+  def subtitles_as_hash(track, artist)
+    @subtitles = get_subtitles(track, artist)
     # uses @subtitles to format into hash
-    chunk = @subtiles.split("\n")
+    chunk = @subtitles.split("\n")
     # need to break out times and words
     # and then...
-    h = {}
-    chunk.map { |thing| h[thing.match(/\[.*\]/).to_s] = thing.match(/\s.*$/).to_s }
-    return h
+    obj = {}
+    chunk.map {|thing| obj[thing[0..10]]=thing[11..-1]}
     # h.first = ["[00:07.92]", " There's only two types of people in the world:"]
+    # json.to_json
+    # returns: "{\"[00:07.92]\":\" There's only two types of people in the world:\",
+    # needs to be [{time: '0:10', lyrics: 'Hey...'}, {time: '0:15', lyrics: 'you'}]
+    return obj
   end
 
 end

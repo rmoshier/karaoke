@@ -25,10 +25,15 @@ class MusixmatchSetter
     return @subtitles
   end
 
-  # def tohash
-  # uses @subtitles to format into hash
-  # need to break out times and words
-  # and then...
-  # end
+  def to_hash(subtitles)
+    # uses @subtitles to format into hash
+    chunk = @subtiles.split("\n")
+    # need to break out times and words
+    # and then...
+    h = {}
+    chunk.map { |thing| h[thing.match(/\[.*\]/).to_s] = thing.match(/\s.*$/).to_s }
+    return h
+    # h.first = ["[00:07.92]", " There's only two types of people in the world:"]
+  end
 
 end

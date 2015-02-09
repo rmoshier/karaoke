@@ -1,3 +1,7 @@
+#nav {
+  text-align: center;
+}
+
 /* line 2, global.scss */
 #upsell div {
   display: none;
@@ -13,7 +17,7 @@
 
 /* line 13, global.scss */
 .playControls {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 /* line 17, global.scss */

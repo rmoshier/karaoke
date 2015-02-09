@@ -16,12 +16,18 @@
 </head>
 <body>
 
-<h1>Karaoke App</h1>
-
   <div class="container">
 
-    <div id="navbar">
-
+    <div id="nav">
+      <div class="row" style="margin: 10px;">
+        <% if !current_user %>
+          <%= link_to "Login with Rdio", "/auth/rdio" %>
+        <% else %>
+          <%= current_user.first_name %>
+          <img class="img-circle"<%= image_tag current_user.image %>
+          <%= link_to "Logout", destroy_session_path %>
+        <% end %>
+      </div>
     </div>
 
     <div id="upsell" class="alert alert-info alert-dismissable">
@@ -45,7 +51,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6" style="center">
             <div class="playControls btn-group">
               <button id="play" class="btn btn-default"><i class="fa fa-play-circle"></i> Play</button>
               <button id="stop" class="btn btn-default"><i class="fa fa-stop"></i> Stop</button>

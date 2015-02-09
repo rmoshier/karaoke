@@ -1,10 +1,11 @@
-<%= link_to "Login with Rdio", "/auth/rdio" %>
-
-<% if session[:user_id] %>
-  <%= "Session: " %>
-  <%=  session[:user_id] %>
-  <br>
+<% if !current_user %>
+  <%= link_to "Login with Rdio", "/auth/rdio" %>
+<% else %>
   <%= "Welcome " %>
   <%= current_user.first_name %>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <%= image_tag current_user.image, class: "avatar" %></a>
+  <!-- <%= current_user.image %> -->
+  <%#= raise  %>
   <%= link_to "Logout", destroy_session_path %>
 <% end %>

@@ -1,5 +1,9 @@
 require 'httparty'
 
+###########################################
+# RESTART SERVER AFTER EDITING THIS FILE! #
+###########################################
+
 class RdioSetter
 
   def initialize(user)

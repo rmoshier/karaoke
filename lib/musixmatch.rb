@@ -1,6 +1,10 @@
 require 'httparty'
 require 'json'
 
+###########################################
+# RESTART SERVER AFTER EDITING THIS FILE! #
+###########################################
+
 class MusixmatchSetter
 
   def get_track(track, artist)

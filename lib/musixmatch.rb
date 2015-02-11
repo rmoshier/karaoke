@@ -30,11 +30,39 @@ class MusixmatchSetter
   end
 
   def subtitles_as_hash(track, artist)
+    # raise
     @subtitles = get_subtitles(track, artist)
     chunk = @subtitles.split("\n")
     obj = {}
     chunk.map {|thing| obj[thing[0..10]]=thing[11..-1]}
     return obj
   end
+
+  def hash_to_time(obj)
+    newtime = obj.map {|thing| thing[0].gsub(/["\[\]]/, "").split(":") }
+    seconds = newtime.map { |time| (time[0].to_i * 60) + time[1].to_f }
+    # puts seconds
+    finaltime = {}
+    lyrics = obj.values
+    seconds.each_with_index do |number, index|
+      finaltime[number] = lyrics[index]
+    end
+    return finaltime
+    # raise
+  end
+  # puts finaltime.to_json #returns json
+# ---
+    # time = subtitles_as_hash(track, artist).first[0].gsub(/["\[\]]/, "")
+    # newtime = time.split(":")
+    # seconds = newtime[1].to_f + (60 * newtime[0].to_i)
+    # # add in iternation / map the data and return that here
+    # # return for each {counter: {time: seconds, lyric: subtitles_as_hash(track, artist).first[1]}}
+    # return seconds
+    # # then console.log this
+    # # raise
+  # end
+
+  # def hashtolyric
+  # end
 
 end

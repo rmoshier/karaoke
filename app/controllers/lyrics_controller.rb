@@ -13,6 +13,11 @@ class LyricsController < ApplicationController
     respond_to do |format|
       format.json { render json: @subtitles_as_hash }
     end
+    @seconds_and_lyrics = MusixmatchSetter.new.hash_to_time(@subtitles_as_hash)
+    respond_to do |format|
+      format.json { render json: @seconds_and_lyrics }
+    end
+    # raise
   end
 
 end

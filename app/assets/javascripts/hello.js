@@ -119,6 +119,9 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
         success: function(data) {
           console.log(data);
           console.log("working!");
+          // no - put another ajax call here that routes through a new method in lyrics controller (Musixmatch.new.hash_to_time)
+          // put the lyrics in a place where we can access them when the times are matched/time passes (storing something)
+          // (when something happens)
         },
         error: function() {
           console.log("ERROR");
@@ -143,12 +146,16 @@ callback_object.muteChanged = function muteChanged(mute) {
 };
 
 callback_object.positionChanged = function positionChanged(position) {
-  //The position within the track changed to position seconds.
+  // The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
-  console.log(position);
+  // console.log(position);
   $('#position').text(position);
   // this is where i need to put the code for comparing seconds in json object and song position
-  // first convert the json timestamp into seconds that we can use
+  // first convert the json/ timestamp into seconds that we can use
+  // when the position is changed, find the matching lyric position to the current song positin and then update the current ui
+  // range
+  // store lyric information in a separate variable where all of these functions can access it ***. when we first get lyric information
+  // put it in a var variable at the top of the file.
 };
 
 callback_object.queueChanged = function queueChanged(newQueue) {

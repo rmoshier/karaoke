@@ -17,6 +17,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
 
+var lyrics
 // a global variable that will hold a reference to the api swf once it has loaded
 var apiswf = null;
 
@@ -117,6 +118,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
         // dataType: "text",
         dataType: "json",
         success: function(data) {
+          lyrics = data;
           console.log(data);
           console.log("working!");
           // no - put another ajax call here that routes through a new method in lyrics controller (Musixmatch.new.hash_to_time)
@@ -149,7 +151,9 @@ callback_object.positionChanged = function positionChanged(position) {
   // The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
   // console.log(position);
+  // updateUrl(); // does this work here?
   $('#position').text(position);
+  console.log(lyrics);
   // this is where i need to put the code for comparing seconds in json object and song position
   // first convert the json/ timestamp into seconds that we can use
   // when the position is changed, find the matching lyric position to the current song positin and then update the current ui

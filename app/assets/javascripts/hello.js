@@ -150,10 +150,20 @@ callback_object.muteChanged = function muteChanged(mute) {
 callback_object.positionChanged = function positionChanged(position) {
   // The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
-  // console.log(position);
-  // updateUrl(); // does this work here?
   $('#position').text(position);
-  console.log(lyrics);
+  // console.log(lyrics);
+    lyrics.forEach(function(lyric) {
+      if (lyrics[0].time < position) {
+        console.log(lyrics[0].lyrics);
+      }
+    });
+    // console.log( lyrics[0].time + ": " + lyrics[0].lyrics );
+    // showLyrics =
+    // if first array item is < current time / position
+    // then put the corresponding lyric into the lyric div in html
+    // maybe like this? $('#lyrics').html(lyric[1]);
+    // then delete that array item, or store in a different array
+
   // this is where i need to put the code for comparing seconds in json object and song position
   // first convert the json/ timestamp into seconds that we can use
   // when the position is changed, find the matching lyric position to the current song positin and then update the current ui

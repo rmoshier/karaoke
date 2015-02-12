@@ -20,6 +20,8 @@
         <% if !current_user %>
           <%= link_to "Login with Rdio", "/auth/rdio" %>
         <% else %>
+          <%= "Welcome to Rdio Karaoke!" %>
+          <br>
           <%= current_user.first_name %>
           <img class="img-circle"<%= image_tag current_user.image %>
           <%= link_to "Logout", destroy_session_path %>

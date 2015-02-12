@@ -14,6 +14,7 @@ class LyricsController < ApplicationController
     respond_to do |format|
       format.json { render json: @seconds_and_lyrics }
     end
+    # with the format json thing above, this makes the @seconds_and_lyrics variable available to the JS as json
     # @seconds_and_lyrics = MusixmatchSetter.new.hash_to_time(@subtitles_as_hash)
     # respond_to do |format|
     #   format.json { render json: @seconds_and_lyrics }

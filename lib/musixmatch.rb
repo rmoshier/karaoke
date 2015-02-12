@@ -51,7 +51,7 @@ class MusixmatchSetter
       finaltime << {time: number, lyrics: lyrics[index]}
     end
     return finaltime
-    raise
+    # raise
   end
   # puts finaltime.to_json #returns json
 # ---

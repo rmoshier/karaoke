@@ -18,6 +18,13 @@ html body {
   font-family: 'Open Sans', sans-serif;
 }
 
+#box {
+  background-color: white;
+  border: 10px, solid, black;
+  /*border: none;*/
+  box-shadow: none;
+}
+
 .img-circle {
   margin: 10px;
 }

@@ -15,10 +15,10 @@ RSpec.describe User, :type => :model do
     #   expect(new_user).to be_invalid
     # end
 
-    it "must have a first name" do
-      new_user.first_name = nil
-      expect(new_user).to be_invalid
-    end
+    # it "must have a first name" do
+    #   new_user.first_name = nil
+    #   expect(new_user).to be_invalid
+    # end
 
     # it "must have a password" do
     #   new_user.password_digest = nil

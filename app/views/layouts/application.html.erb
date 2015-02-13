@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
 
     <div id="nav">
       <div class="row" style="margin: 10px;">
@@ -29,74 +29,17 @@
       </div>
     </div>
 
-    <div id="lyrics">
-      <h3>Lyrics:</h3>
-    </div>
+    <% if current_user %>
+      <%= render "layouts/signedin" %>
+    <% else %>
+      <%= render "layouts/guest" %>
+    <% end %>
 
-    <div id="apiswf"></div>
-      <div class="row well">
-        <div class="artistAlbumInfo well col-md-6 ">
-          <h3><span id="artist"></span> - <span id="track"></span></h3>
-          <img src="" id="art" class="albumArt">
-        </div>
-        <div class="col-md-6">
-          <h3 id="album"></h3>
-          <h4>Playstate <p id="playState"></p></h4>
-          <h4>Position <p id="position"></p></h4>
-        </div>
-      </div>
-
-      <div class="well" style="overflow: hidden;">
-        <div class="row" style="margin-bottom: 10px;">
-            <% if current_user %>
-              <!-- <div class="col-md-2">Enter Album Key</div> -->
-              <div class="col-md-10">
-                <input id="play_key" class="form-control" value="<%=@key %>" type="hidden">
-                <!-- or we could do something called data attribute here -->
-            <% end %>
-            <!-- <input id="play_key" class="form-control" value="p12674528"> -->
-            <!-- <input id="play_key" class="form-control" value="a239851"> -->
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6" style="center">
-            <div class="playControls btn-group">
-              <button id="play" class="btn btn-default"><i class="fa fa-play-circle"></i> Play</button>
-              <button id="stop" class="btn btn-default"><i class="fa fa-stop"></i> Stop</button>
-              <button id="pause" class="btn btn-default"><i class="fa fa-pause"></i> Pause</button>
-              <button id="previous" class="btn btn-default"><i class="fa fa-step-backward"></i> Previous</button>
-              <button id="next" class="btn btn-default"><i class="fa fa-step-forward"></i> Next</button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div id="freq" class="frequency">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <div id="upsell" class="alert alert-info alert-dismissable">
-      <div id="subscriber">You are an Rdio subscriber. You're awesome.</div>
-      <div id="trial">You are an Rdio trial user, Subscribe now!</div>
-      <div id="free">You are an Rdio Free user with <span id="remaining"></span>% of your quota remaining, subscribe now!</div>
-      <div id="nobody">To hear full tracks subscribe to Rdio.</div>
-    </div>
   </div>
 
-</body>
-</html>
-
-<%= yield %>
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

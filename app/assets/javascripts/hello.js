@@ -153,9 +153,10 @@ callback_object.positionChanged = function positionChanged(position) {
   $('#position').text(position);
   // console.log(lyrics);
     lyrics.forEach(function(lyric) {
-      if (lyrics[0].time < position) {
-        console.log(lyrics[0].lyrics);
-        // right now it shows the first lyric of the first obj on que
+      for (var i = 0; lyrics[i].time < position; i++) {
+        // (var i = 0; i < arrayLength; i++)
+        console.log(lyrics[i].lyrics);
+        // right now it shows the first lyric of the first obj on cue
         // need to iterate through all lyrics and show the next thing next
       }
     });

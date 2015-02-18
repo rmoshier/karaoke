@@ -131,6 +131,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           a = album.a;
           var color = result + r + ", " + g + ", " + b + ", " + a + ")";
           console.log(color);
+          $("body").css("backgroundColor", color);
 
             // data.forEach(function(key, value) {
             //   for (result.length === 5 && key == "r") {

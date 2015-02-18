@@ -99,6 +99,9 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     $('#album').text(playingTrack['album']);
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);
+
+    lyrics = " ";
+
     console.log(playingTrack);
 
     artBackground = function() {

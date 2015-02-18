@@ -133,7 +133,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     updateUrl();
 
     artBackground = function() {
-      console.log(art);
+      console.log(art["src"]);
       $('#art').css('background-image');
     };
     artBackground();

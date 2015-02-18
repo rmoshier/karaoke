@@ -219,7 +219,7 @@ callback_object.positionChanged = function positionChanged(position) {
   $('#position').text(position);
   // console.log(lyrics);
     lyrics.forEach(function(lyric) {
-      for (var i = 0; lyrics[i].time < position; i++) {
+      for (var i = 0; lyrics[i].time < position + 1; i++) {
         // (var i = 0; i < arrayLength; i++)
         // console.log(lyrics[i].lyrics);
         $('#lyrics').html(lyrics[i].lyrics);

@@ -116,6 +116,30 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           // Object {a: 255, r: 63, b: 231, g: 192}
           // this is where we change the object to a string that looks like this:
           // rgba(200, 54, 54, 0.5);
+          // $("body").css('backgroundColor', result);
+
+          // lyrics.forEach(function(lyric) {
+          //   for (var i = 0; lyrics[i].time < position; i++) {
+          //     // (var i = 0; i < arrayLength; i++)
+          //     // console.log(lyrics[i].lyrics);
+          //     $('#lyrics').html(lyrics[i].lyrics);
+
+          var result = "rgba(";
+          r = album.r;
+          g = album.g;
+          b = album.b;
+          a = album.a;
+          var color = result + r + ", " + g + ", " + b + ", " + a + ")";
+          console.log(color);
+
+            // data.forEach(function(key, value) {
+            //   for (result.length === 5 && key == "r") {
+            //     result += value;
+            //   } elsif (result.length === 7 && key == "b"); {
+            //     result += value;
+            //   }
+            // });
+          console.log(result);
           console.log("ajax album: ");
           console.log(data);
         },

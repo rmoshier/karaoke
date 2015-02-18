@@ -99,6 +99,45 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     $('#album').text(playingTrack['album']);
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);
+    console.log(playingTrack);
+
+    artBackground = function() {
+      var trackAlbum = $('#album').html();
+      console.log("album name: ");
+      console.log(trackAlbum);
+      $.ajax("/album", {
+        type: "POST",
+        data: {
+          'album': trackAlbum
+        },
+        dataType: "json",
+        success: function(data) {
+          album = data;
+          // Object {a: 255, r: 63, b: 231, g: 192}
+          // this is where we change the object to a string that looks like this:
+          // rgba(200, 54, 54, 0.5);
+          console.log("ajax album: ");
+          console.log(data);
+        },
+        error: function() {
+          console.log("ALBUM ERROR");
+        }
+      });
+
+      // var bg_img = $("body").css("background-image");
+      // console.log(art.src);
+      // var bg_img = $("body").css('background-image');
+      // console.log(bg_img);
+      // console.log("hello?");
+      //
+      // $("play").click(function() {
+      //  var bg = $(art.src).css('background-image');
+      //  bg = bg.replace('url(','').replace(')','');
+      //  console.log(bg);
+      //  alert(bg);
+      // });
+    };
+    artBackground();
 
     updateUrl = function() {
       var trackArtist = $('#artist').html();
@@ -132,11 +171,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     };
     updateUrl();
 
-    artBackground = function() {
-      console.log(art["src"]);
-      $('#art').css('background-image');
-    };
-    artBackground();
+
   }
 };
 

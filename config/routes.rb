@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get "/auth/rdio/callback",  to: "sessions#create",        as: :connect
 
+  post "/album",              to: "home#album",             as: :album
+
   post "/lyrics",             to: "lyrics#index",           as: :lyrics
 
   get "/logout",              to: "sessions#destroy",       as: :destroy_session

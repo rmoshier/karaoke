@@ -33,8 +33,21 @@ html body .outline-box {
   margin: 10px;
 }
 
+html body .img {
+  float: right;
+}
+
 #filler {
   color: #c3c3c3;
+}
+
+.wtf {
+  text-align: center;
+}
+
+.artistAlbumInfo {
+  background-color: white;
+  margin-top: 10px;
 }
 
 /*html body #lyrics {

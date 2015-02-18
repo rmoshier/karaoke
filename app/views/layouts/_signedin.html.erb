@@ -19,30 +19,38 @@
       </div>
     </div>
 
-    <div class="row" style="overflow: hidden;">
+      <div class="row" style="overflow: hidden;">
 
-      <div style="margin-bottom: 10px;">
-        <% if current_user %>
-          <!-- <div class="col-md-2">Enter Album Key</div> -->
-          <div>
-            <input id="play_key" class="form-control" value="<%=@key%>" type="hidden">
-            <!-- or we could do something called data attribute here -->
-          </div>
-        <% end %>
-        <!-- <input id="play_key" class="form-control" value="p12674528"> -->
-        <!-- <input id="play_key" class="form-control" value="a239851"> -->
+        <div style="margin-bottom: 10px;">
+          <% if current_user %>
+            <!-- <div class="col-md-2">Enter Album Key</div> -->
+            <div>
+              <input id="play_key" class="form-control" value="<%=@key%>" type="hidden">
+              <!-- or we could do something called data attribute here -->
+            </div>
+          <% end %>
+          <!-- <input id="play_key" class="form-control" value="p12674528"> -->
+          <!-- <input id="play_key" class="form-control" value="a239851"> -->
+        </div>
+
       </div>
 
-      <div class="col-md-6" class="artistAlbumInfo"  class="outline-box" style="center">
-        <img src="" id="art" class="albumArt">
+      <div class="wtf" style="center">
+
+            <h5>Artist: <span id="artist"></span></h5>
+            <h5>Track: <span id="track"></span></h5>
+            <h5>Album: <span id="album"></span></h5>
+            <h5>Position: <span id="position"></span></h5>
+          <!-- <h4>Playstate <p id="playState"></p></h4> -->
+
       </div>
 
-      <div class="col-md-6">
-        <h5>Artist: <span id="artist"></span></h5>
-        <h5>Track: <span id="track"></span></h5>
-        <h5>Album: <span id="album"></span></h5>
-        <h5>Position: <span id="position"></span></h5>
-        <!-- <h4>Playstate <p id="playState"></p></h4> -->
+      <div class="wtf" style="overflow: hidden;">
+
+        <div class="artistAlbumInfo"  style="center">
+          <img src="" id="art" class="albumArt">
+        </div>
+
       </div>
 
     </div>

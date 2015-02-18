@@ -18,16 +18,29 @@ html body {
   font-family: 'Open Sans', sans-serif;
 }
 
-#box {
+html body .box {
   background-color: white;
   border: 10px, solid, black;
-  /*border: none;*/
+  border: none;
   box-shadow: none;
+}
+
+html body .outline-box {
+  background-color: blue;
 }
 
 .img-circle {
   margin: 10px;
 }
+
+#filler {
+  color: #c3c3c3;
+}
+
+/*html body #lyrics {
+  color: black;
+  size: 50px;
+}*/
 
 /*#splash {*/
   /*background-image: url("/images/japan.jpg");*/

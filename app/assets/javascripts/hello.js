@@ -201,8 +201,17 @@ callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString
   // arrayAsString is a list of comma separated floats.
 
   var arr = arrayAsString.split(',');
+  var colors = ["#ff0000","#ff7700","#f6fa00", "#24fb02", "#0612fa", "#5f0cb3"];
+  var rand = Math.floor(Math.random()*colors.length);
 
   $('#freq div').each(function(i) {
     $(this).width(parseInt(parseFloat(arr[i])*500));
   });
+
+  $('.band').each(function() {
+    $('#freq').css("background-color", colors[rand]);
+    $(this).css("background-color", colors[rand]);
+  });
+  // $(document).ready(function(){
+// });
 };

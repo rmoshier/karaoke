@@ -26,11 +26,11 @@ THE SOFTWARE.
 //   {"status": "ok", "result": "YOUR_PLAYBACK_TOKEN"}
 // then update playback_token below with YOUR_PLAYBACK_TOKEN and the domain below with YOUR_DOMAIN
 
-// var playback_token = "GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=";
-// var domain = "localhost";
+var playback_token = "GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=";
+var domain = "localhost";
 
 // var playback_token = "GA5U2Phj_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbjU0LjE5MS4yMTcuMTk5xbSKGiWtz94quNDvcHXj6Q==";
 // var domain = "54.191.217.199";
 
-var playback_token = "GA9U43TJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnJkaW9rYXJhb2tlLmNvbW3iE1j3yURPbYkl0_oxvnE=";
-var domain = "rdiokaraoke.com";
+// var playback_token = "GA9U43TJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnJkaW9rYXJhb2tlLmNvbW3iE1j3yURPbYkl0_oxvnE=";
+// var domain = "rdiokaraoke.com";

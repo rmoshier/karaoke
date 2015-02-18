@@ -17,7 +17,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
 
-var lyrics
+var lyrics;
 // a global variable that will hold a reference to the api swf once it has loaded
 var apiswf = null;
 
@@ -119,7 +119,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
         dataType: "json",
         success: function(data) {
           lyrics = data;
-          console.log(data);
+          // console.log(data);
           console.log("working!");
           // no - put another ajax call here that routes through a new method in lyrics controller (Musixmatch.new.hash_to_time)
           // put the lyrics in a place where we can access them when the times are matched/time passes (storing something)
@@ -131,6 +131,12 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
       });
     };
     updateUrl();
+
+    artBackground = function() {
+      console.log(art);
+      $('#art').css('background-image');
+    };
+    artBackground();
   }
 };
 
@@ -155,7 +161,7 @@ callback_object.positionChanged = function positionChanged(position) {
     lyrics.forEach(function(lyric) {
       for (var i = 0; lyrics[i].time < position; i++) {
         // (var i = 0; i < arrayLength; i++)
-        console.log(lyrics[i].lyrics);
+        // console.log(lyrics[i].lyrics);
         $('#lyrics').html(lyrics[i].lyrics);
         // $('#lyrics').html("test");
         // right now it shows the first lyric of the first obj on cue
@@ -201,6 +207,7 @@ callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString
   // arrayAsString is a list of comma separated floats.
 
   var arr = arrayAsString.split(',');
+
   var colors = ["#ff0000","#ff7700","#f6fa00", "#24fb02", "#0612fa", "#5f0cb3"];
   var rand = Math.floor(Math.random()*colors.length);
 

@@ -11,14 +11,20 @@ describe MusixmatchSetter do
       expect(mms.subtitles).to be_an_instance_of String
     end
   end
-  # it "needs arguments to initialize" do
-  #   expect { MusixmatchSetter.new }.to raise_error(ArgumentError)
-  # end
 
-  # let(:track) { MusixmatchSetter.new.get_track("Circus", "Britney Spears") }
-  # it "returns a json" do
-  #   track.get_track.should be_a json
-  # end
+  describe ".subtitles_as_hash" do
+    it "returns a hash" do
+      mms.obj = {:some => "hash"}
+      expect(mms.obj).to be_an_instance_of Hash
+    end
+  end
+
+  describe ".hash_to_time" do
+    it "returns an array" do
+      mms.finaltime = ["some", "array"]
+      expect(mms.finaltime).to be_an_instance_of Array
+    end
+  end
 end
 
 # describe "Person" do

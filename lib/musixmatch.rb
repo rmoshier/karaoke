@@ -7,6 +7,8 @@ require 'json'
 
 class MusixmatchSetter
 
+  attr_accessor :subtitles, :obj, :finaltime
+
   def self.get_track(track, artist)
     # url = "http://api.musixmatch.com/ws/1.1/track.search?apikey=1ded3ade3e63977aef9212b43320afb1&q_track=back%20to%20december&q_artist=taylor%20swift&f_has_lyrics=1"
     url = "http://api.musixmatch.com/ws/1.1/track.search?"

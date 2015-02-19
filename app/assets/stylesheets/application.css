@@ -66,3 +66,21 @@ html body .lyrics {
   /*margin: none;*/
   /*padding: none;*/
 }
+
+.rdio-splash-1 {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 100%;
+}
+
+.rdio-splash-2 {
+  position: absolute;
+  top: 200px;
+  left: 1000px;
+  width: 100%;
+}
+
+html body .modal-backdrop.in {
+  opacity: 0;
+}

@@ -15,13 +15,21 @@
 
   <body>
 
+    <div id='event-modal-window' class='modal fade' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' >
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <%= render 'home/about'%>
+      </div>
+      </div>
+    </div>
+    
     <!-- <div class="container-fluid"> -->
 
       <div id="nav" class="container-fluid">
         <div class="row" style="margin: 10px;">
           <% if !current_user %>
             <%= link_to "Login with Rdio", "/auth/rdio" %>
-            <%= "~" %>
+            <%= (image_tag "rdio-app-icon.png", size: "20x20") %>
             <a id="fmly"  href='javascript:void(0)' onClick="$('#event-modal-window').modal()"> About </a>
           <% else %>
             <%= "Welcome to Rdio Karaoke!" %>
@@ -33,13 +41,6 @@
         </div>
       </div>
 
-      <div id='event-modal-window' class='modal fade' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' >
-      <div class='modal-dialog'>
-        <div class='modal-content'>
-          <%= render 'home/about'%>
-        </div>
-        </div>
-      </div>
 
       <% if current_user %>
         <%= render "layouts/signedin" %>

@@ -84,3 +84,8 @@ html body .lyrics {
 html body .modal-backdrop.in {
   opacity: 0;
 }
+
+#photos {
+  text-align: center;
+  padding-bottom: 10px;
+}

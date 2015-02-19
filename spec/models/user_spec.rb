@@ -2,13 +2,23 @@ require 'rails_helper'
 
 RSpec.describe User, :type => :model do
 
-  describe 'validations' do
-    let(:new_user) { User.new(uid:                  "1234",
-                              image:                "image",
-                              first_name:           "Rachel",
-                              last_name:            "Adler",
-                              rdio_access_token:    "token",
-                              rdio_access_secret:   "secret")}
+  # describe 'validations' do
+  #   let(:new_user) { User.new(uid:                  "1234",
+  #                             image:                "image",
+  #                             first_name:           "Rachel",
+  #                             last_name:            "Adler",
+  #                             rdio_access_token:    "token",
+  #                             rdio_access_secret:   "secret") }
+
+  describe ".create" do
+    it "must have an uid" do
+      expect(User.new(uid: nil)).to_not be_valid
+    end
+
+    it "must have an name" do
+      expect(User.new(first_name: nil)).to_not be_valid
+    end
+
 
     # it "must have an email" do
     #   new_user.email = nil

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+validates :uid, presence: :true
+validates :first_name, presence: :true
 
   def self.create_from_omniauth(auth_hash)
     User.create(

@@ -26,6 +26,7 @@ class RdioSetter
   end
 
   def get_color(album)
+    # searches for the album name and gets dominant color from the returned object
     thing = @client.search(:query => album, :types => "album", :extras => "dominantColor")
     thing.results[0].dominantColor
     # raise

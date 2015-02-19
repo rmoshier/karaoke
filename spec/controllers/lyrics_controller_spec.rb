@@ -2,15 +2,20 @@ require 'rails_helper'
 
 RSpec.describe LyricsController, :type => :controller do
 
-  describe "POST 'index'" do
+  # let(:mms) { MusixmatchSetter.new }
+
+  # describe "index" do
+  #   it "returns a json" do
+  #     mms.subtitles = "some string"
+  #     expect(mms.subtitles).to be_an_instance_of Json
+  #   end
+  # end
+
+  describe "GET 'index'" do
     it "is successful" do
-      post :index
+      get :index
       expect(response.status).to eq 200
     end
-
-    # it "returns a json object" do
-    #   expect()
-    # end
   end
 
 end

@@ -14,7 +14,7 @@
 
   <body>
 
-    <div class="container-fluid">
+    <div id="background" class="container-fluid">
 
       <div id="nav">
         <div class="row" style="margin: 10px;">
@@ -36,12 +36,13 @@
         <%= render "layouts/guest" %>
       <% end %>
 
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+      
     </div>
 
-    <div class="container-fluid">
-      <%= yield %>
-    </div>
 
   </body>
-  
+
 </html>

@@ -9,17 +9,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
 
-    <div id="background" class="container-fluid">
+    <!-- <div class="container-fluid"> -->
 
-      <div id="nav">
+      <div id="nav" class="container-fluid">
         <div class="row" style="margin: 10px;">
           <% if !current_user %>
             <%= link_to "Login with Rdio", "/auth/rdio" %>
+            <%= "~" %>
+            <a id="fmly"  href='javascript:void(0)' onClick="$('#event-modal-window').modal()"> About </a>
+            <!-- <%= link_to "About", "layouts/about" %> -->
           <% else %>
             <%= "Welcome to Rdio Karaoke!" %>
             <br>
@@ -27,6 +31,14 @@
             <img class="img-circle"<%= image_tag current_user.image %>
             <%= link_to "Logout", destroy_session_path %>
           <% end %>
+        </div>
+      </div>
+
+      <div id='event-modal-window' class='modal fade' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' >
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <%= render 'home/about'%>
+        </div>
         </div>
       </div>
 
@@ -39,8 +51,8 @@
       <div class="container-fluid">
         <%= yield %>
       </div>
-      
-    </div>
+
+    <!-- </div> -->
 
 
   </body>

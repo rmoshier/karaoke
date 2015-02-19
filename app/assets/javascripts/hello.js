@@ -43,7 +43,7 @@ $(document).ready(function() {
   $('#stop').click(function() { apiswf.rdio_stop(); });
   $('#pause').click(function() { apiswf.rdio_pause(); });
   $('#previous').click(function() { apiswf.rdio_previous(); });
-  $('#next').click(function() { apiswf.rdio_next(); });
+  $('#next').click(function() { lyrics = " "; apiswf.rdio_next(); });
 
 });
 
@@ -116,6 +116,8 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
         dataType: "json",
         success: function(data) {
           album = data;
+          $("#lyrics").html(" ");
+          lyrics = " ";
           // Object {a: 255, r: 63, b: 231, g: 192}
           // this is where we change the object to a string that looks like this:
           // rgba(200, 54, 54, 0.5);

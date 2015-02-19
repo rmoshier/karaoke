@@ -1,4 +1,4 @@
-#Welcome to {Rdio Karaoke}(http://rdiokaraoke.com)
+#Welcome to [Rdio Karaoke](http://rdiokaraoke.com)
 
 Rdio Karaoke was created by Rachel Adler as her capstone project for the Ada Developers Academy.
 

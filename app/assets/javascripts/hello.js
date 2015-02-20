@@ -121,7 +121,6 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           // Object {a: 255, r: 63, b: 231, g: 192}
           // this is where we change the object to a string that looks like this:
           // rgba(200, 54, 54, 0.5);
-          // $("body").css('backgroundColor', result);
 
           // lyrics.forEach(function(lyric) {
           //   for (var i = 0; lyrics[i].time < position; i++) {

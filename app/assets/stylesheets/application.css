@@ -89,3 +89,8 @@ html body .modal-backdrop.in {
   text-align: center;
   padding-bottom: 10px;
 }
+
+html body #glyphicon {
+  background-color: none;
+
+}

@@ -221,12 +221,13 @@ callback_object.muteChanged = function muteChanged(mute) {
 callback_object.positionChanged = function positionChanged(position) {
   // The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
+  console.log(position);
   $('#position').text(position);
   // console.log(lyrics);
     lyrics.forEach(function(lyric) {
       for (var i = 0; lyrics[i].time < position + 1; i++) {
         // (var i = 0; i < arrayLength; i++)
-        // console.log(lyrics[i].lyrics);
+        console.log(lyrics[i].lyrics);
         $('#lyrics').html(lyrics[i].lyrics);
         // $('#lyrics').html("test");
         // right now it shows the first lyric of the first obj on cue

@@ -92,5 +92,8 @@ html body .modal-backdrop.in {
 
 html body #glyphicon {
   background-color: none;
+}
 
+.artistAlbumInfo {
+  background-color: none;
 }

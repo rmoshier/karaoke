@@ -101,6 +101,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     $('#art').attr('src', playingTrack['icon']);
 
     lyrics = " ";
+    $("#lyrics").html(" ");
 
     console.log(playingTrack);
 
@@ -116,8 +117,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
         dataType: "json",
         success: function(data) {
           album = data;
-          $("#lyrics").html(" ");
-          lyrics = " ";
+          // lyrics = " ";
           // Object {a: 255, r: 63, b: 231, g: 192}
           // this is where we change the object to a string that looks like this:
           // rgba(200, 54, 54, 0.5);

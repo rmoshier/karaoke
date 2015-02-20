@@ -34,4 +34,3 @@ THE SOFTWARE.
 
 var playback_token = "GA9U43TJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnJkaW9rYXJhb2tlLmNvbW3iE1j3yURPbYkl0_oxvnE=";
 var domain = "rdiokaraoke.com";
-// var playback_token = "GA9U5nkZ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnJkaW9rYXJhb2tlLmNvbVipKB7Mt3W4BnQAQnAPAFI=";

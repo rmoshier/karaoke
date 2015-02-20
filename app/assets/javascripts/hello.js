@@ -135,16 +135,10 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           a = album.a;
           var color = result + r + ", " + g + ", " + b + ", " + a + ")";
           console.log(color);
-          $("body").css("backgroundColor", color);
+          // $("body").css("backgroundColor", color);
+          // $("body").animate( { backgroundColor: color }, 1000 ).css("backgroundColor", color);
+          $("body").css("backgroundColor", color).animate( { backgroundColor: color, color: color }, 1000 );
 
-            // data.forEach(function(key, value) {
-            //   for (result.length === 5 && key == "r") {
-            //     result += value;
-            //   } elsif (result.length === 7 && key == "b"); {
-            //     result += value;
-            //   }
-            // });
-          console.log(result);
           console.log("ajax album: ");
           console.log(data);
         },

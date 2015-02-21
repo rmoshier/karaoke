@@ -20,6 +20,10 @@ html body {
   background-color: white;
 }
 
+html body h1 {
+  border: white;
+}
+
 html body .box {
   background-color: white;
   border: 10px, solid, black;
@@ -55,9 +59,11 @@ button {
   background-color: none;
 }
 
-html body .lyrics {
+.lyrics {
   outline: white;
-  text-shadow: 3px;
+  text-shadow: #fff;
+  /*color: white;*/
+  -webkit-text-stroke-width: 1px;
 }
 
 #splash-picture {
@@ -98,4 +104,11 @@ html body #glyphicon {
 
 html body .artistAlbumInfo {
   background-color: none;
+}
+
+@media (max-width: 450px) {
+  html body .button-class {
+    margin: 0 auto !important;
+    width: 50% !important;
+  }
 }

@@ -135,9 +135,10 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           a = album.a;
           var color = result + r + ", " + g + ", " + b + ", " + a + ")";
           console.log(color);
-          // $("body").css("backgroundColor", color);
+          $("body").css("backgroundColor", color);
+          $("body").css("color", "white"); // keeping this line in switches the text to white when the background color changes. 
           // $("body").animate( { backgroundColor: color }, 1000 ).css("backgroundColor", color);
-          $("body").css("backgroundColor", color).animate( { backgroundColor: color, color: color }, 1000 );
+          // $("body").css("backgroundColor", color).animate( { backgroundColor: color, color: color }, 1000 );
 
           console.log("ajax album: ");
           console.log(data);

@@ -136,7 +136,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           var color = result + r + ", " + g + ", " + b + ", " + a + ")";
           console.log(color);
           $("body").css("backgroundColor", color);
-          $("body").css("color", "white"); // keeping this line in switches the text to white when the background color changes. 
+          $("body").css("color", "white"); // keeping this line in switches the text to white when the background color changes.
           // $("body").animate( { backgroundColor: color }, 1000 ).css("backgroundColor", color);
           // $("body").css("backgroundColor", color).animate( { backgroundColor: color, color: color }, 1000 );
 

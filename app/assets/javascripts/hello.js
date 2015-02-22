@@ -98,11 +98,15 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);
 
+// Set lyrics to blank in between songs.
     lyrics = " ";
     $("#lyrics").html(" ");
 
-    console.log(playingTrack);
-
+// When track changes:
+// (1) Search Rdio for album, and return album information including dominantColor (in home controller and rdio.rb),
+// (2) Parse rgba color information into appropriate format,
+// (3) Make that color the background color, and
+// (4) Make the text white.
     artBackground = function() {
       var trackAlbum = $('#album').html();
       $.ajax("/album", {
@@ -121,7 +125,7 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           a = album.a;
           var color = result + r + ", " + g + ", " + b + ", " + a + ")";
           $("body").css("backgroundColor", color);
-          $("body").css("color", "white"); // this line switches the text to white when the background color changes.
+          $("body").css("color", "white");
         },
         error: function() {
           console.log("ALBUM ERROR");
@@ -130,6 +134,10 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
     };
     artBackground();
 
+// When track changes:
+// (1) Update url used to make Musixmatch API call with appropriate artist and track information.
+// (2) Data is parsed in lyrics controller and is returned as an array with seconds and lyrics.
+// This is stored as a global variable 'lyrics' on the top of the file.
     updateUrl = function() {
       var trackArtist = $('#artist').html();
       var trackName = $('#track').html();
@@ -173,11 +181,12 @@ callback_object.muteChanged = function muteChanged(mute) {
 callback_object.positionChanged = function positionChanged(position) {
   // The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
-  console.log(position);
+  // ////////////////////////////////////////////////////////////
+  // When track positing changes, the lyrics stored in the global variable are grabbed, iterated through,
+  // and if the seconds are less than the current position (in seconds), add them to the screen via html.
   $('#position').text(position);
     lyrics.forEach(function(lyric) {
       for (var i = 0; lyrics[i].time < position + 1; i++) {
-        console.log(lyrics[i].lyrics);
         $('#lyrics').html(lyrics[i].lyrics);
       }
     });

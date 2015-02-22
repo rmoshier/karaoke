@@ -5,13 +5,6 @@ describe MusixmatchSetter do
 
   let(:mms) { MusixmatchSetter.new }
 
-  # describe ".get_track" do
-  #   it "needs two arguments" do
-  #     # mms.get_track(track)
-  #     expect(mss.get_track(track)).to raise_error(NameError)
-  #   end
-  # end
-
   describe ".get_subtitles" do
     it "returns a string" do
       mms.subtitles = "some string"
@@ -33,10 +26,3 @@ describe MusixmatchSetter do
     end
   end
 end
-
-# describe "Person" do
-#   let(:person) { Person.new("Bookis") }
-#   it "has the name Bookis" do
-#     person.name.should eq "Bookis"
-#   end
-# end

@@ -94,8 +94,6 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
   // Track metadata is provided as playingTrack and the position within the playing source as sourcePosition.
   if (playingTrack != null) {
     $('#track').text(playingTrack['name']);
-    // console.log(playingTrack, sourcePosition);
-    // console.log(trackName);
     $('#album').text(playingTrack['album']);
     $('#artist').text(playingTrack['artist']);
     $('#art').attr('src', playingTrack['icon']);
@@ -107,8 +105,6 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
 
     artBackground = function() {
       var trackAlbum = $('#album').html();
-      console.log("album name: ");
-      console.log(trackAlbum);
       $.ajax("/album", {
         type: "POST",
         data: {
@@ -117,16 +113,6 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
         dataType: "json",
         success: function(data) {
           album = data;
-          // lyrics = " ";
-          // Object {a: 255, r: 63, b: 231, g: 192}
-          // this is where we change the object to a string that looks like this:
-          // rgba(200, 54, 54, 0.5);
-
-          // lyrics.forEach(function(lyric) {
-          //   for (var i = 0; lyrics[i].time < position; i++) {
-          //     // (var i = 0; i < arrayLength; i++)
-          //     // console.log(lyrics[i].lyrics);
-          //     $('#lyrics').html(lyrics[i].lyrics);
 
           var result = "rgba(";
           r = album.r;
@@ -134,32 +120,13 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           b = album.b;
           a = album.a;
           var color = result + r + ", " + g + ", " + b + ", " + a + ")";
-          console.log(color);
           $("body").css("backgroundColor", color);
-          $("body").css("color", "white"); // keeping this line in switches the text to white when the background color changes.
-          // $("body").animate( { backgroundColor: color }, 1000 ).css("backgroundColor", color);
-          // $("body").css("backgroundColor", color).animate( { backgroundColor: color, color: color }, 1000 );
-
-          console.log("ajax album: ");
-          console.log(data);
+          $("body").css("color", "white"); // this line switches the text to white when the background color changes.
         },
         error: function() {
           console.log("ALBUM ERROR");
         }
       });
-
-      // var bg_img = $("body").css("background-image");
-      // console.log(art.src);
-      // var bg_img = $("body").css('background-image');
-      // console.log(bg_img);
-      // console.log("hello?");
-      //
-      // $("play").click(function() {
-      //  var bg = $(art.src).css('background-image');
-      //  bg = bg.replace('url(','').replace(')','');
-      //  console.log(bg);
-      //  alert(bg);
-      // });
     };
     artBackground();
 
@@ -168,9 +135,6 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
       var trackName = $('#track').html();
       var method = "track.search";
       console.log("working?");
-      console.log(trackArtist);
-      // this ajax call needs to go to my own app
-      // in my app i'll be using httparty
       $.ajax("/lyrics", {
         type: "POST",
         data: {
@@ -178,15 +142,10 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
           'track': trackName,
           'method': method,
         },
-        // dataType: "text",
         dataType: "json",
         success: function(data) {
           lyrics = data;
-          // console.log(data);
           console.log("working!");
-          // no - put another ajax call here that routes through a new method in lyrics controller (Musixmatch.new.hash_to_time)
-          // put the lyrics in a place where we can access them when the times are matched/time passes (storing something)
-          // (when something happens)
         },
         error: function() {
           console.log("ERROR");
@@ -194,7 +153,6 @@ callback_object.playingTrackChanged = function playingTrackChanged(playingTrack,
       });
     };
     updateUrl();
-
 
   }
 };
@@ -217,30 +175,12 @@ callback_object.positionChanged = function positionChanged(position) {
   // This happens both in response to a seek and during playback.
   console.log(position);
   $('#position').text(position);
-  // console.log(lyrics);
     lyrics.forEach(function(lyric) {
       for (var i = 0; lyrics[i].time < position + 1; i++) {
-        // (var i = 0; i < arrayLength; i++)
         console.log(lyrics[i].lyrics);
         $('#lyrics').html(lyrics[i].lyrics);
-        // $('#lyrics').html("test");
-        // right now it shows the first lyric of the first obj on cue
-        // need to iterate through all lyrics and show the next thing next
       }
     });
-    // console.log( lyrics[0].time + ": " + lyrics[0].lyrics );
-    // showLyrics =
-    // if first array item is < current time / position
-    // then put the corresponding lyric into the lyric div in html
-    // maybe like this? $('#lyrics').html(lyric[1]);
-    // then delete that array item, or store in a different array
-
-  // this is where i need to put the code for comparing seconds in json object and song position
-  // first convert the json/ timestamp into seconds that we can use
-  // when the position is changed, find the matching lyric position to the current song positin and then update the current ui
-  // range
-  // store lyric information in a separate variable where all of these functions can access it ***. when we first get lyric information
-  // put it in a var variable at the top of the file.
 };
 
 callback_object.queueChanged = function queueChanged(newQueue) {
@@ -268,17 +208,8 @@ callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString
 
   var arr = arrayAsString.split(',');
 
-  var colors = ["#ff0000","#ff7700","#f6fa00", "#24fb02", "#0612fa", "#5f0cb3"];
-  var rand = Math.floor(Math.random()*colors.length);
-
   $('#freq div').each(function(i) {
     $(this).width(parseInt(parseFloat(arr[i])*500));
   });
 
-  $('.band').each(function() {
-    $('#freq').css("background-color", colors[rand]);
-    $(this).css("background-color", colors[rand]);
-  });
-  // $(document).ready(function(){
-// });
 };
